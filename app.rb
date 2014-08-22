@@ -22,6 +22,7 @@ __END__
 %html
 	%head
 		%title= drug
+		%meta{name:"viewport",content:"width=device-width,initial-scale=1.0"}
 		%link{rel:'stylesheet',href:'bootstrap.min.css'}
 		:css
 			.jumbotron { background-color: white }
