@@ -26,7 +26,6 @@ __END__
 		%link{rel:'stylesheet',href:'bootstrap.min.css'}
 		:css
 			.jumbotron { background-color: white }
-			* { color: red }
 	%body
 		%div.jumbotron
 			%a{href:"http://ja.wikipedia.org/wiki/%E5%8C%BB%E8%96%AC%E5%93%81%E4%B8%80%E8%A6%A7"} 医薬品一覧 - Wikipedia
