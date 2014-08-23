@@ -4,6 +4,7 @@ gem 'haml'
 gem 'nokogiri'
 gem 'rake'
 gem 'json'
+gem 'builder'
 group :development do
 	gem 'shotgun'
 end
