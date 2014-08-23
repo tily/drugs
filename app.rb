@@ -1,3 +1,4 @@
+require 'date'
 require 'sinatra'
 require './lib/drugs.rb'
 
@@ -14,6 +15,11 @@ end
 get '/json' do
 	content_type 'text/json'
 	JSON.pretty_generate(drug: drug)	
+end
+
+get '/rss' do
+	content_type 'application/xml'
+	builder :'/rss'
 end
 
 __END__
@@ -38,4 +44,18 @@ __END__
 			%h1.text-center= drug
 			:javascript
 				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
+@@ /rss
+xml.instruct! :xml, :version => '1.0'
+xml.rss :version => "2.0" do
+	xml.channel do
+		xml.title "drugs"
+		xml.description "医薬品一覧 - Wikipedia のマルコフ連鎖"
+		xml.link "http://drugs.herokuapp.com/"
+		xml.item do
+			xml.title drug
+			xml.link "http://drugs.herokuapp.com/"
+			xml.description drug
+			xml.pubDate Time.parse Date.today.to_s
+		end
+	end
+end
