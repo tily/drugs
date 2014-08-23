@@ -1,4 +1,5 @@
 require 'date'
+require 'builder'
 require 'sinatra'
 require './lib/drugs.rb'
 
