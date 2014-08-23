@@ -57,6 +57,7 @@ xml.rss :version => "2.0" do
 			xml.link "http://drugs.herokuapp.com/"
 			xml.description drug
 			xml.pubDate Time.parse Date.today.to_s
+			xml.guid Time.parse Date.today.to_s
 		end
 	end
 end
