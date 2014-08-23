@@ -49,6 +49,7 @@ __END__
 xml.instruct! :xml, :version => '1.0'
 xml.rss :version => "2.0" do
 	xml.channel do
+		time = params[:time] || '00:00'
 		xml.title "drugs"
 		xml.description "医薬品一覧 - Wikipedia のマルコフ連鎖"
 		xml.link "http://drugs.herokuapp.com/"
@@ -56,8 +57,8 @@ xml.rss :version => "2.0" do
 			xml.title drug
 			xml.link "http://drugs.herokuapp.com/"
 			xml.description drug
-			xml.pubDate Time.parse Date.today.to_s
-			xml.guid Time.parse Date.today.to_s
+			xml.pubDate Time.parse Date.today.to_s + "#{time}:00 +0900"
+			xml.guid Time.parse Date.today.to_s + "#{time}:00 +0900"
 		end
 	end
 end
